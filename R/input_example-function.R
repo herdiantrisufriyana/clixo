@@ -22,9 +22,18 @@ input_example=function(){
 
   ## Create example of instance-feature data frame
   input$value=
-    rnorm(3000*5) %>%
-    matrix(3000,5,T,list(paste0('I',1:3000),paste0('F',1:5))) %>%
-    as.data.frame()
+    mtcars %>%
+    as.matrix() %>%
+    as.numeric() %>%
+    matrix(
+      nrow(mtcars)
+      ,ncol(mtcars)
+      ,T
+      ,list(paste0('I',1:nrow(mtcars)),paste0('F',1:ncol(mtcars)))) %>%
+    as.data.frame() %>%
+    mutate_all(scale) %>%
+    .[sample(1:nrow(.),3000,T),] %>%
+    `rownames<-`(paste0('I',1:nrow(.)))
 
   ## Create example of feature similarity matrix using Pearson correlation
   input$similarity=
