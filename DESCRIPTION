@@ -22,9 +22,9 @@ Authors@R:
     )
 Depends: R (>= 4.0.2)
 Description: This package facilitates application of Clique-Extracted Ontology
-    (CliXO) algorithm from Michael Kramer. The input is a feature similarity
-    matrix, while the output is an ontology source-target-similarity-relation
-    data frame.
+    (CliXO) algorithm in R. This algorithm was originally implemented in C++ by
+    Michael Kramer. The input is a feature similarity matrix, while the output
+    is an ontology source-target-similarity-relation data frame.
 License: GPL-3
 LazyData: true
 Roxygen: list(markdown = TRUE)
