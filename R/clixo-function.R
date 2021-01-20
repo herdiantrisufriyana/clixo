@@ -36,7 +36,7 @@
 clixo=function(similarity
                ,alpha=0.01
                ,beta=0.5
-               ,feature_name='gene'
+               ,feature_name='feature'
                ,onto_prefix='CliXO'){
 
   # Clone forked clixo C++ program from GitHub

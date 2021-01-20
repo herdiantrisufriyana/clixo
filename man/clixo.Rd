@@ -8,7 +8,7 @@ clixo(
   similarity,
   alpha = 0.01,
   beta = 0.5,
-  feature_name = "gene",
+  feature_name = "feature",
   onto_prefix = "CliXO"
 )
 }
