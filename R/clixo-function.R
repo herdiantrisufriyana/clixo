@@ -1,3 +1,38 @@
+#' Create Clique-Extracted Ontology (CliXO)
+#'
+#' This function create clique-extracted ontology from a similarity matrix.
+#'
+#' @param similarity Feature similarity, a square matrix of numerics containing
+#' feature-feature similarity measures.
+#' @param alpha A numeric of a noise parameter. Please see
+#' https://pubmed.ncbi.nlm.nih.gov/24932003/.
+#' @param beta A numeric of a parameter which deals with missing edges. Please
+#' see https://pubmed.ncbi.nlm.nih.gov/24932003/.
+#' @param feature_name A character to annotate feature (source)-ontology
+#' (target) relation in the resulting ontology.
+#' @param onto_prefix A character that precedes the resulting ontology names.
+#'
+#' @return clique-extracted ontology, a data frame with rows for ontologies and
+#' four columns for source, target, similarity, and relation. Feature (source)-
+#' ontology (target) relation is annotated as 'feature' as defined by default
+#' for \code{feature_name}, while ontology-ontology relation is annotated as
+#' 'is_a'. To differentiate between feature and ontology names, an
+#' \code{onto_prefix} with ':' precedes an ontology name. All columns except
+#' similarity are characters. Similarity (a numeric) is a minimum threshold by
+#' which either features or ontologies (source) belong to an ontology (target).
+#'
+#' @keywords clixo
+#'
+#' @export
+#'
+#' @examples
+#'
+#' ## Create input example
+#' input=input_example()
+#'
+#' ## Run CliXO algorithm
+#' ontology=clixo(input$similarity)
+
 clixo=function(similarity
                ,alpha=0.01
                ,beta=0.5

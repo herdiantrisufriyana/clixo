@@ -12,7 +12,7 @@ instances and columns for features; 2) similarity, a square matrix of
 numerics containing feature-feature similarity measures.
 }
 \description{
-This function create an input example for several function in clixo package.
+This function create an input example for clixo package.
 }
 \examples{
 

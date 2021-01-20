@@ -1,6 +1,6 @@
 #' Make an input example for clixo package
 #'
-#' This function create an input example for several function in clixo package.
+#' This function create an input example for clixo package.
 #'
 #' @return output A list of inputs: 1) value, a data frame with rows for
 #' instances and columns for features; 2) similarity, a square matrix of
