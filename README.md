@@ -6,7 +6,7 @@ algorithm in R. This algorithm was originally implemented in C++ by
 a feature similarity matrix, while the output is an ontology
 source-target-similarity-relation data frame.
 
-## Quick Start divnn R
+## Quick Start clixo R
 
 <a href="https://htmlpreview.github.io/?https://github.com/herdiantrisufriyana/clixo/blob/master/vignettes/quick-start-R.html">
 Read vignette for simple example in R</a>
