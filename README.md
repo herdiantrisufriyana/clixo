@@ -11,6 +11,10 @@ source-target-similarity-relation data frame.
 <a href="https://htmlpreview.github.io/?https://github.com/herdiantrisufriyana/clixo/blob/master/vignettes/quick-start-R.html">
 Read vignette for simple example in R</a>
 
+<a href="https://github.com/herdiantrisufriyana/clixo/blob/main/vignettes/quick-start.R">Download R script</a>
+
+<a href="https://github.com/herdiantrisufriyana/clixo/blob/main/man/clixo_0.1.0.pdf">Reference manual</a>
+
 ## References
 
 [1] Kramer M, Dutkowski J, Yu M, Bafna V, Ideker T. Inferring gene ontologies
