@@ -133,6 +133,6 @@ clixo=function(similarity
   # Remove clixo C++ program
   system('bash -c "rm -r clixo_0.3"')
 
-  # Remove
+  # Return
   cx
 }
