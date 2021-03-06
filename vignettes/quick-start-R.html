@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2021-01-29" />
+<meta name="date" content="2021-03-06" />
 
 <title>Clique-Extracted Ontology (CliXO): Quick Start clixo R</title>
 
@@ -2144,11 +2144,11 @@ function toggle_visibility(id1) {
 <p class="author-name">Herdiantri Sufriyana<span class="affil-mark">1,2*</span>, Yu-Wei Wu<span class="affil-mark">1,3</span> and Emily Chia-Yu Su<span class="affil-mark">1,3,4</span></p>
 <p class="author-affiliation"><span class="affil-mark">1</span>Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei, Taiwan<br><span class="affil-mark">2</span>Department of Medical Physiology, College of Medicine, University of Nahdlatul Ulama Surabaya, Surabaya, Indonesia<br><span class="affil-mark">3</span>Clinical Big Data Research Center, Taipei Medical University Hospital, Taipei, Taiwan<br><span class="affil-mark">4</span>Research Center for Artificial Intelligence in Medicine, Taipei Medical University, Taipei, Taiwan</p>
 <p class="author-email"><span class="affil-mark">*</span><a href="mailto:herdiantrisufriyana@unusa.ac.id">herdiantrisufriyana@unusa.ac.id</a></p>
-<h4 class="date">29 January 2021</h4>
+<h4 class="date">6 March 2021</h4>
 <h4 class="abstract">Abstract</h4>
 <p>This vignette explains how to use this package using simulated data.</p>
 <h4 class="package">Package</h4>
-<p>clixo 0.1.0</p>
+<p>clixo 0.1.1</p>
 
 </div>
 
@@ -2169,8 +2169,20 @@ library(clixo)</code></pre>
 </div>
 <div id="create-clixo" class="section level1">
 <h1><span class="header-section-number">3</span> Create CliXO</h1>
-<p>Run Clique-Extracted Ontology (CliXO) algorithm.</p>
-<pre class="r"><code>ontology=clixo(input$similarity)</code></pre>
+<p>Run Clique-Extracted Ontology (CliXO) algorithm. By default, clixo() function
+applies these arguments:</p>
+<ul>
+<li>alpha=0.01</li>
+<li>beta=0.5</li>
+<li>feature_name=‘feature’</li>
+<li>onto_prefix=‘CliXO’</li>
+<li>os=‘windows’</li>
+</ul>
+<p>Please consult to this <a href="https://pubmed.ncbi.nlm.nih.gov/24932003/" class="uri">https://pubmed.ncbi.nlm.nih.gov/24932003/</a> for the
+reason why those alpha and beta values are applied. For this vignette, I used
+linux. Please apply ‘os’ depending on your operating system if it’s not windows
+(see documentation).</p>
+<pre class="r"><code>ontology=clixo(input$similarity,os=&#39;linux&#39;)</code></pre>
 <p>Here is the resulting ontology.</p>
 <div class='horizontal-scroll'><table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>

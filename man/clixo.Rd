@@ -9,7 +9,8 @@ clixo(
   alpha = 0.01,
   beta = 0.5,
   feature_name = "feature",
-  onto_prefix = "CliXO"
+  onto_prefix = "CliXO",
+  os = "windows"
 )
 }
 \arguments{
@@ -26,6 +27,9 @@ see https://pubmed.ncbi.nlm.nih.gov/24932003/.}
 (target) relation in the resulting ontology.}
 
 \item{onto_prefix}{A character that precedes the resulting ontology names.}
+
+\item{os}{A character of operating system. This may be 'windows',
+'linux', or 'mac'}
 }
 \value{
 clique-extracted ontology, a data frame with rows for ontologies and
