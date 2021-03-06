@@ -11,6 +11,8 @@
 #' @param feature_name A character to annotate feature (source)-ontology
 #' (target) relation in the resulting ontology.
 #' @param onto_prefix A character that precedes the resulting ontology names.
+#' @param os A character of operating system. This may be 'windows',
+#' 'linux', or 'mac'
 #'
 #' @return clique-extracted ontology, a data frame with rows for ontologies and
 #' four columns for source, target, similarity, and relation. Feature (source)-
@@ -37,13 +39,20 @@ clixo=function(similarity
                ,alpha=0.01
                ,beta=0.5
                ,feature_name='feature'
-               ,onto_prefix='CliXO'){
+               ,onto_prefix='CliXO'
+               ,os='windows'){
+
+  if(os=='windows'){
+    os='clixo_0.3/clixo_0.3_windows'
+  }else{
+    os='clixo_0.3'
+  }
 
   # Clone forked clixo C++ program from GitHub
   system(paste(c(
-    'bash -c'
-    ,'"git clone https://github.com/herdiantrisufriyana/clixo_0.3"'
+    'git clone https://github.com/herdiantrisufriyana/clixo_0.3/'
   ),collapse=' '))
+  on.exit(system('rm -r clixo_0.3'))
 
   # Format and write similarity to tsv for input
   similarity %>%
@@ -55,14 +64,17 @@ clixo=function(similarity
     write_tsv(paste0('clixo_0.3/input.tsv',collapse=''),col_names=F)
 
   # Run clixo algorithm
-  system(paste(c(
-    'bash -c'
-    ,'"clixo_0.3/clixo clixo_0.3/input.tsv'
-    ,alpha
-    ,beta
-    ,feature_name
-    ,'> clixo_0.3/ontology.cx"'
-  ),collapse=' '))
+  filecon=file('clixo_0.3/ontology.cx')
+  on.exit({system('rm -r clixo_0.3'); close(filecon)})
+  suppressWarnings(system(paste(c(
+      paste0(os,'/clixo')
+      ,'clixo_0.3/input.tsv'
+      ,alpha
+      ,beta
+      ,feature_name
+    ),collapse=' '),intern=T)) %>%
+    paste(collapse='\n') %>%
+    writeLines(filecon)
 
   # Read output file into R
   cx=
@@ -131,7 +143,7 @@ clixo=function(similarity
     )
 
   # Remove clixo C++ program
-  system('bash -c "rm -r clixo_0.3"')
+  # system('bash -c "rm -r clixo_0.3"')
 
   # Return
   cx

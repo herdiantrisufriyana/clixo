@@ -1,7 +1,7 @@
 Package: clixo
 Type: Package
 Title: An implementation of the Clique-Extracted Ontology (CliXO) algorithm
-Version: 0.1.0
+Version: 0.1.1
 Date: 2020-11-29
 Authors@R: 
     c(person(given = "Herdiantri",
