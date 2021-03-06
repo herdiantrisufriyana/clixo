@@ -78,14 +78,14 @@ clixo=function(similarity
       writeLines(filecon)
   }else{
     system(paste(c(
-      'bash -c '
+      'bash -c'
       ,paste0('"',clixo_path,'/clixo')
       ,'clixo_0.3/input.tsv'
       ,alpha
       ,beta
       ,feature_name
       ,'> clixo_0.3/ontology.cx"'
-    )))
+    ),collapse=' '))
   }
 
   # Read output file into R
