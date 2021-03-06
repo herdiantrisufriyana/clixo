@@ -43,9 +43,9 @@ clixo=function(similarity
                ,os='windows'){
 
   if(os=='windows'){
-    os='clixo_0.3/clixo_0.3_windows'
+    clixo_path='clixo_0.3/clixo_0.3_windows'
   }else{
-    os='clixo_0.3'
+    clixo_path='clixo_0.3'
   }
 
   # Clone forked clixo C++ program from GitHub
@@ -68,7 +68,7 @@ clixo=function(similarity
     filecon=file('clixo_0.3/ontology.cx')
     on.exit({system('rm -r clixo_0.3'); close(filecon)})
     suppressWarnings(system(paste(c(
-      paste0(os,'/clixo')
+      paste0(clixo_path,'/clixo')
       ,'clixo_0.3/input.tsv'
       ,alpha
       ,beta
@@ -79,7 +79,7 @@ clixo=function(similarity
   }else{
     system(paste(c(
       'bash -c '
-      ,paste0('"',os,'/clixo')
+      ,paste0('"',clixo_path,'/clixo')
       ,'clixo_0.3/input.tsv'
       ,alpha
       ,beta
