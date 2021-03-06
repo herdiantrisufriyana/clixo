@@ -41,8 +41,11 @@ clixo=function(similarity
 
   # Clone forked clixo C++ program from GitHub
   system(paste(c(
-    'bash -c'
-    ,'"git clone https://github.com/herdiantrisufriyana/clixo_0.3"'
+    'git clone https://github.com/herdiantrisufriyana/clixo_0.3'
+  ),collapse=' '))
+
+  system(paste(c(
+    'git clone https://github.com/herdiantrisufriyana/recompile/clixo_0.3b'
   ),collapse=' '))
 
   # Format and write similarity to tsv for input
@@ -56,12 +59,11 @@ clixo=function(similarity
 
   # Run clixo algorithm
   system(paste(c(
-    'bash -c'
-    ,'"clixo_0.3/clixo clixo_0.3/input.tsv'
+    'clixo_0.3/clixo clixo_0.3/input.tsv'
     ,alpha
     ,beta
     ,feature_name
-    ,'> clixo_0.3/ontology.cx"'
+    ,'> clixo_0.3/ontology.cx'
   ),collapse=' '))
 
   # Read output file into R
