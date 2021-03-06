@@ -64,17 +64,29 @@ clixo=function(similarity
     write_tsv(paste0('clixo_0.3/input.tsv',collapse=''),col_names=F)
 
   # Run clixo algorithm
-  filecon=file('clixo_0.3/ontology.cx')
-  on.exit({system('rm -r clixo_0.3'); close(filecon)})
-  suppressWarnings(system(paste(c(
+  if(os=='windows'){
+    filecon=file('clixo_0.3/ontology.cx')
+    on.exit({system('rm -r clixo_0.3'); close(filecon)})
+    suppressWarnings(system(paste(c(
       paste0(os,'/clixo')
       ,'clixo_0.3/input.tsv'
       ,alpha
       ,beta
       ,feature_name
     ),collapse=' '),intern=T)) %>%
-    paste(collapse='\n') %>%
-    writeLines(filecon)
+      paste(collapse='\n') %>%
+      writeLines(filecon)
+  }else{
+    system(paste(c(
+      'bash -c '
+      ,paste0('"',os,'/clixo')
+      ,'clixo_0.3/input.tsv'
+      ,alpha
+      ,beta
+      ,feature_name
+      ,'> clixo_0.3/ontology.cx"'
+    )))
+  }
 
   # Read output file into R
   cx=
